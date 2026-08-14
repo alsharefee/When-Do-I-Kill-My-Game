@@ -106,7 +106,7 @@
                     
                     <!-- Macroeconomic Inputs -->
                     <div class="mt-8 pt-6 border-t border-slate-800">
-                        <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Macro Constraints (NL 2026)</h3>
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Macro Constraints</h3>
                         
                         <!-- Cost of Living Input -->
                         <div class="mb-4 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-sm">
@@ -114,25 +114,11 @@
                                 <label class="text-sm font-medium text-slate-300 flex items-center gap-2">
                                     <i data-lucide="briefcase" class="text-blue-400 w-4 h-4"></i> Monthly Cost of Living
                                 </label>
-                                <span class="text-lg font-bold text-white" id="val-col">€2037</span>
+                                <span class="text-lg font-bold text-white" id="val-col">$2000</span>
                             </div>
-                            <input type="range" id="inp-col" min="1000" max="4000" step="50" value="2037">
+                            <input type="range" id="inp-col" min="1000" max="4000" step="50" value="2000">
                             <div class="flex justify-between text-xs text-slate-500 mt-2">
-                                <span>€1000</span><span>€4000</span>
-                            </div>
-                        </div>
-
-                        <!-- Opp Cost Input -->
-                        <div class="mb-4 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-sm">
-                            <div class="flex justify-between items-center mb-2">
-                                <label class="text-sm font-medium text-slate-300 flex items-center gap-2">
-                                    <i data-lucide="clock" class="text-blue-400 w-4 h-4"></i> Lost Wages (Opp. Cost)
-                                </label>
-                                <span class="text-lg font-bold text-white" id="val-opp">€2608</span>
-                            </div>
-                            <input type="range" id="inp-opp" min="0" max="5000" step="50" value="2608">
-                            <div class="flex justify-between text-xs text-slate-500 mt-2">
-                                <span>€0</span><span>€5000</span>
+                                <span>$1000</span><span>$4000</span>
                             </div>
                         </div>
                     </div>
@@ -155,7 +141,7 @@
                     <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg relative overflow-hidden">
                         <div class="absolute top-0 right-0 p-4 opacity-10"><i data-lucide="dollar-sign" class="w-12 h-12"></i></div>
                         <p class="text-slate-400 text-sm font-medium mb-1">Lifetime Net Revenue</p>
-                        <p class="text-3xl font-bold text-emerald-400 mb-2" id="out-net-rev">€0</p>
+                        <p class="text-3xl font-bold text-emerald-400 mb-2" id="out-net-rev">$0</p>
                         <p class="text-xs text-slate-500 flex items-center gap-1">
                             <i data-lucide="info" class="w-3 h-3"></i> Post-tax & fees (55% Ratio)
                         </p>
@@ -164,9 +150,9 @@
                     <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg relative overflow-hidden">
                         <div class="absolute top-0 right-0 p-4 opacity-10"><i data-lucide="skull" class="w-12 h-12"></i></div>
                         <p class="text-slate-400 text-sm font-medium mb-1">Monthly Burn Rate</p>
-                        <p class="text-3xl font-bold text-rose-400 mb-2" id="out-burn">€0</p>
+                        <p class="text-3xl font-bold text-rose-400 mb-2" id="out-burn">$0</p>
                         <p class="text-xs text-slate-500 flex items-center gap-1">
-                            <i data-lucide="info" class="w-3 h-3"></i> Living Exp. + Missed Salary
+                            <i data-lucide="info" class="w-3 h-3"></i> Living Expenses
                         </p>
                     </div>
                 </div>
@@ -244,7 +230,7 @@
                     <h4 class="text-white font-bold mb-2 flex items-center gap-2"><i data-lucide="info" class="w-4 h-4"></i> Methodology & Assumptions</h4>
                     <p>• <strong>Golden Ratio (55%):</strong> Accounts for average regional pricing dilution, 21% VAT, Valve's 30% platform cut, and baseline PC/VR refund rates (10-18%).</p>
                     <p>• <strong>Steam Next Fest Multiplier:</strong> Calculated strictly as a multiplier. 'Bronze' tier (&lt;1k wishlists) historically yields ~462 additions. 'Silver' tier yields ~1.5k.</p>
-                    <p>• <strong>Cost Modeling:</strong> Assumes a baseline minimum wage opportunity cost (€2,608/mo) + NL 2026 base living expenses (€2,037/mo). As a solo dev, working on the game actively burns both metrics.</p>
+                    <p>• <strong>Cost Modeling:</strong> Assumes base living expenses. As a solo dev, working on the game actively burns this metric.</p>
                 </div>
             </div>
         </div>
@@ -255,7 +241,6 @@
         lucide.createIcons();
 
         // Constants based on the report
-        const USD_TO_EUR = 0.865;
         const GOLDEN_RATIO = 0.55;
         const LIFETIME_MULTIPLIER = 7.5;
 
@@ -264,7 +249,6 @@
         const inpPrice = document.getElementById('inp-price');
         const inpConv = document.getElementById('inp-conv');
         const inpCol = document.getElementById('inp-col');
-        const inpOpp = document.getElementById('inp-opp');
 
         function updateCalculations() {
             // 1. Get Values & Update Labels
@@ -272,13 +256,11 @@
             const priceUsd = parseFloat(inpPrice.value);
             const conversionRate = parseFloat(inpConv.value);
             const costOfLiving = parseFloat(inpCol.value);
-            const opportunityCost = parseFloat(inpOpp.value);
 
             document.getElementById('val-wishlists').innerText = wishlists;
             document.getElementById('val-price').innerText = '$' + priceUsd.toFixed(2);
             document.getElementById('val-conv').innerText = conversionRate + '%';
-            document.getElementById('val-col').innerText = '€' + costOfLiving;
-            document.getElementById('val-opp').innerText = '€' + opportunityCost;
+            document.getElementById('val-col').innerText = '$' + costOfLiving;
 
             // 2. Perform Math
             let expectedSnfGain = 0;
@@ -290,17 +272,17 @@
             const week1Sales = launchWishlists * (conversionRate / 100);
             const lifetimeUnits = week1Sales * LIFETIME_MULTIPLIER;
             const lifetimeGrossUsd = lifetimeUnits * priceUsd;
-            const lifetimeNetEur = lifetimeGrossUsd * GOLDEN_RATIO * USD_TO_EUR;
+            const lifetimeNetUsd = lifetimeGrossUsd * GOLDEN_RATIO;
             
-            const monthlyBurn = costOfLiving + opportunityCost;
-            const maxDevMonths = monthlyBurn > 0 ? lifetimeNetEur / monthlyBurn : 0;
+            const monthlyBurn = costOfLiving;
+            const maxDevMonths = monthlyBurn > 0 ? lifetimeNetUsd / monthlyBurn : 0;
             const maxDevWeeks = maxDevMonths * 4.33;
 
             // 3. Update Output Metrics
             document.getElementById('out-launch-wishlists').innerText = Math.floor(launchWishlists).toLocaleString();
             document.getElementById('out-snf-gain').innerText = expectedSnfGain;
-            document.getElementById('out-net-rev').innerText = '€' + Math.floor(lifetimeNetEur).toLocaleString();
-            document.getElementById('out-burn').innerText = '€' + Math.floor(monthlyBurn).toLocaleString();
+            document.getElementById('out-net-rev').innerText = '$' + Math.floor(lifetimeNetUsd).toLocaleString();
+            document.getElementById('out-burn').innerText = '$' + Math.floor(monthlyBurn).toLocaleString();
             
             const weeksEl = document.getElementById('out-weeks');
             weeksEl.innerText = maxDevWeeks.toFixed(1);
@@ -341,7 +323,7 @@
         }
 
         // 5. Attach Event Listeners
-        const inputs = [inpWishlists, inpPrice, inpConv, inpCol, inpOpp];
+        const inputs = [inpWishlists, inpPrice, inpConv, inpCol];
         inputs.forEach(input => {
             input.addEventListener('input', updateCalculations);
         });
