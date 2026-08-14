@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Exit Calculator</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom slider styling to match the premium React look -->
+    <style>
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #3b82f6;
+            cursor: pointer;
+            margin-top: -5px;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #334155;
+            border-radius: 4px;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans selection:bg-blue-500/30 min-h-screen p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-8 border-b border-slate-800 pb-6">
+            <div class="flex items-center gap-3 mb-2">
+                <i data-lucide="target" class="text-blue-500 w-8 h-8"></i>
+                <h1 class="text-3xl font-extrabold text-white tracking-tight">Project Exit Calculator</h1>
+            </div>
+            <p class="text-slate-400 max-w-3xl">
+                A forensic financial modeling tool based on the 2026 Steam algorithmic constraints and macroeconomic realities. Calculate the absolute maximum time you can afford to develop based on your current wishlist velocity.
+            </p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <div class="lg:col-span-4 space-y-6">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i data-lucide="settings" class="text-slate-400 w-5 h-5"></i>
+                        Parameters
+                    </h2>
+                    
+                    <!-- Wishlists Input -->
+                    <div class="mb-4 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-sm">
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-sm font-medium text-slate-300 flex items-center gap-2">
+                                <i data-lucide="trending-up" class="text-blue-400 w-4 h-4"></i> Current Wishlists
+                            </label>
+                            <span class="text-lg font-bold text-white" id="val-wishlists">50</span>
+                        </div>
+                        <input type="range" id="inp-wishlists" min="0" max="10000" step="10" value="50">
+                        <div class="flex justify-between text-xs text-slate-500 mt-2">
+                            <span>0</span><span>10000</span>
+                        </div>
+                    </div>
+
+                    <!-- Price Input -->
+                    <div class="mb-4 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-sm">
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-sm font-medium text-slate-300 flex items-center gap-2">
+                                <i data-lucide="dollar-sign" class="text-blue-400 w-4 h-4"></i> Base Price (USD)
+                            </label>
+                            <span class="text-lg font-bold text-white" id="val-price">$14.99</span>
+                        </div>
+                        <input type="range" id="inp-price" min="4.99" max="39.99" step="1" value="14.99">
+                        <div class="flex justify-between text-xs text-slate-500 mt-2">
+                            <span>$4.99</span><span>$39.99</span>
+                        </div>
+                    </div>
+
+                    <!-- Conversion Rate Input -->
+                    <div class="mb-4 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-sm">
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-sm font-medium text-slate-300 flex items-center gap-2">
+                                <i data-lucide="target" class="text-blue-400 w-4 h-4"></i> Conv. Rate (Expected %)
+                            </label>
+                            <span class="text-lg font-bold text-white" id="val-conv">10%</span>
+                        </div>
+                        <input type="range" id="inp-conv" min="1" max="20" step="0.5" value="10">
+                        <div class="flex justify-between text-xs text-slate-500 mt-2">
+                            <span>1%</span><span>20%</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Macroeconomic Inputs -->
+                    <div class="mt-8 pt-6 border-t border-slate-800">
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Macro Constraints (NL 2026)</h3>
+                        
+                        <!-- Cost of Living Input -->
+                        <div class="mb-4 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-sm">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-sm font-medium text-slate-300 flex items-center gap-2">
+                                    <i data-lucide="briefcase" class="text-blue-400 w-4 h-4"></i> Monthly Cost of Living
+                                </label>
+                                <span class="text-lg font-bold text-white" id="val-col">€2037</span>
+                            </div>
+                            <input type="range" id="inp-col" min="1000" max="4000" step="50" value="2037">
+                            <div class="flex justify-between text-xs text-slate-500 mt-2">
+                                <span>€1000</span><span>€4000</span>
+                            </div>
+                        </div>
+
+                        <!-- Opp Cost Input -->
+                        <div class="mb-4 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-sm">
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="text-sm font-medium text-slate-300 flex items-center gap-2">
+                                    <i data-lucide="clock" class="text-blue-400 w-4 h-4"></i> Lost Wages (Opp. Cost)
+                                </label>
+                                <span class="text-lg font-bold text-white" id="val-opp">€2608</span>
+                            </div>
+                            <input type="range" id="inp-opp" min="0" max="5000" step="50" value="2608">
+                            <div class="flex justify-between text-xs text-slate-500 mt-2">
+                                <span>€0</span><span>€5000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-6">
+                
+                <!-- Top Metrics Row -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10"><i data-lucide="trending-up" class="w-12 h-12"></i></div>
+                        <p class="text-slate-400 text-sm font-medium mb-1">Launch Wishlists</p>
+                        <p class="text-3xl font-bold text-white mb-2" id="out-launch-wishlists">0</p>
+                        <p class="text-xs text-slate-500 flex items-center gap-1">
+                            <i data-lucide="info" class="w-3 h-3"></i> Includes ~<span id="out-snf-gain">0</span> from SNF
+                        </p>
+                    </div>
+                    
+                    <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10"><i data-lucide="dollar-sign" class="w-12 h-12"></i></div>
+                        <p class="text-slate-400 text-sm font-medium mb-1">Lifetime Net Revenue</p>
+                        <p class="text-3xl font-bold text-emerald-400 mb-2" id="out-net-rev">€0</p>
+                        <p class="text-xs text-slate-500 flex items-center gap-1">
+                            <i data-lucide="info" class="w-3 h-3"></i> Post-tax & fees (55% Ratio)
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl shadow-lg relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10"><i data-lucide="skull" class="w-12 h-12"></i></div>
+                        <p class="text-slate-400 text-sm font-medium mb-1">Monthly Burn Rate</p>
+                        <p class="text-3xl font-bold text-rose-400 mb-2" id="out-burn">€0</p>
+                        <p class="text-xs text-slate-500 flex items-center gap-1">
+                            <i data-lucide="info" class="w-3 h-3"></i> Living Exp. + Missed Salary
+                        </p>
+                    </div>
+                </div>
+
+                <div id="verdict-bg" class="p-1 rounded-2xl bg-gradient-to-br from-rose-500/50 to-red-900/50">
+                    <div class="bg-slate-950 rounded-xl p-8 h-full">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h2 class="text-2xl font-bold text-white mb-2 flex items-center gap-3">
+                                    <div id="verdict-icon-container">
+                                        <i data-lucide="alert-triangle" class="text-rose-500 w-6 h-6"></i>
+                                    </div>
+                                    Fiscally Justifiable Dev Time
+                                </h2>
+                                <p class="text-slate-400 max-w-xl">
+                                    Based on dividing your projected lifetime net revenue by your monthly economic footprint (burn rate). Any time spent beyond this threshold is an unrecoverable financial loss.
+                                </p>
+                            </div>
+                            <div class="text-right">
+                                <div id="out-weeks" class="text-6xl font-black text-rose-500">0.0</div>
+                                <div class="text-slate-400 font-bold uppercase tracking-widest mt-1">Weeks Max</div>
+                            </div>
+                        </div>
+
+                        <!-- RED DIRECTIVE -->
+                        <div id="verdict-red" class="mt-8 pt-8 border-t border-slate-800/50 hidden">
+                            <h3 class="text-lg font-bold text-white mb-4">Strategic Directive</h3>
+                            <div class="space-y-4">
+                                <p class="text-rose-200 bg-rose-950/30 p-4 rounded-lg border border-rose-900/50">
+                                    <strong>Aggressive Containment Required:</strong> This project has not achieved product-market fit. Your lifetime revenue will not cover standard living and opportunity costs. Execute a graceful exit immediately.
+                                </p>
+                                <ul class="list-disc pl-5 space-y-2 text-slate-300">
+                                    <li><strong>Weeks 1-2:</strong> Halt all feature creep. Stabilize core mechanics.</li>
+                                    <li><strong>Week 3:</strong> Package a highly stable 38-minute demo. Optimize store page.</li>
+                                    <li><strong>Week 4:</strong> Deploy to Steam Next Fest (Broadcast only).</li>
+                                    <li><strong>Week 5:</strong> Pre-launch QA. Lock the build. No new code.</li>
+                                    <li><strong>Week 6:</strong> Release with 10% discount. Hotfix for 7 days, then abandon.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- AMBER DIRECTIVE -->
+                        <div id="verdict-amber" class="mt-8 pt-8 border-t border-slate-800/50 hidden">
+                            <h3 class="text-lg font-bold text-white mb-4">Strategic Directive</h3>
+                            <div class="space-y-4">
+                                <p class="text-amber-200 bg-amber-950/30 p-4 rounded-lg border border-amber-900/50">
+                                    <strong>Moderate Risk - Strict Scoping Required:</strong> The project shows mild algorithmic traction, but margins are tight. You have a few months of viable runway.
+                                </p>
+                                <ul class="list-disc pl-5 space-y-2 text-slate-300">
+                                    <li>Focus entirely on the "Golden Path" of your game loop.</li>
+                                    <li>Do not expand the scope or promise post-launch roadmaps.</li>
+                                    <li>Rigorously monitor wishlist velocity; if it dips, pivot to the 6-week exit strategy.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- GREEN DIRECTIVE -->
+                        <div id="verdict-green" class="mt-8 pt-8 border-t border-slate-800/50 hidden">
+                            <h3 class="text-lg font-bold text-white mb-4">Strategic Directive</h3>
+                            <div class="space-y-4">
+                                <p class="text-emerald-200 bg-emerald-950/30 p-4 rounded-lg border border-emerald-900/50">
+                                    <strong>Viable Project Profile:</strong> Based on current parameters, this project justifies prolonged development.
+                                </p>
+                                <ul class="list-disc pl-5 space-y-2 text-slate-300">
+                                    <li>Continue polishing high-retention mechanics.</li>
+                                    <li>Your wishlist momentum indicates strong algorithmic backing.</li>
+                                    <li>Prepare for a standard marketing cycle, ensuring hardware mechanics are flawless.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 text-sm text-slate-400 space-y-3">
+                    <h4 class="text-white font-bold mb-2 flex items-center gap-2"><i data-lucide="info" class="w-4 h-4"></i> Methodology & Assumptions</h4>
+                    <p>• <strong>Golden Ratio (55%):</strong> Accounts for average regional pricing dilution, 21% VAT, Valve's 30% platform cut, and baseline PC/VR refund rates (10-18%).</p>
+                    <p>• <strong>Steam Next Fest Multiplier:</strong> Calculated strictly as a multiplier. 'Bronze' tier (&lt;1k wishlists) historically yields ~462 additions. 'Silver' tier yields ~1.5k.</p>
+                    <p>• <strong>Cost Modeling:</strong> Assumes a baseline minimum wage opportunity cost (€2,608/mo) + NL 2026 base living expenses (€2,037/mo). As a solo dev, working on the game actively burns both metrics.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Constants based on the report
+        const USD_TO_EUR = 0.865;
+        const GOLDEN_RATIO = 0.55;
+        const LIFETIME_MULTIPLIER = 7.5;
+
+        // Fetch inputs
+        const inpWishlists = document.getElementById('inp-wishlists');
+        const inpPrice = document.getElementById('inp-price');
+        const inpConv = document.getElementById('inp-conv');
+        const inpCol = document.getElementById('inp-col');
+        const inpOpp = document.getElementById('inp-opp');
+
+        function updateCalculations() {
+            // 1. Get Values & Update Labels
+            const wishlists = parseFloat(inpWishlists.value);
+            const priceUsd = parseFloat(inpPrice.value);
+            const conversionRate = parseFloat(inpConv.value);
+            const costOfLiving = parseFloat(inpCol.value);
+            const opportunityCost = parseFloat(inpOpp.value);
+
+            document.getElementById('val-wishlists').innerText = wishlists;
+            document.getElementById('val-price').innerText = '$' + priceUsd.toFixed(2);
+            document.getElementById('val-conv').innerText = conversionRate + '%';
+            document.getElementById('val-col').innerText = '€' + costOfLiving;
+            document.getElementById('val-opp').innerText = '€' + opportunityCost;
+
+            // 2. Perform Math
+            let expectedSnfGain = 0;
+            if (wishlists < 1000) expectedSnfGain = 462;
+            else if (wishlists < 10000) expectedSnfGain = 1500;
+            else expectedSnfGain = 5000;
+            
+            const launchWishlists = wishlists + expectedSnfGain;
+            const week1Sales = launchWishlists * (conversionRate / 100);
+            const lifetimeUnits = week1Sales * LIFETIME_MULTIPLIER;
+            const lifetimeGrossUsd = lifetimeUnits * priceUsd;
+            const lifetimeNetEur = lifetimeGrossUsd * GOLDEN_RATIO * USD_TO_EUR;
+            
+            const monthlyBurn = costOfLiving + opportunityCost;
+            const maxDevMonths = monthlyBurn > 0 ? lifetimeNetEur / monthlyBurn : 0;
+            const maxDevWeeks = maxDevMonths * 4.33;
+
+            // 3. Update Output Metrics
+            document.getElementById('out-launch-wishlists').innerText = Math.floor(launchWishlists).toLocaleString();
+            document.getElementById('out-snf-gain').innerText = expectedSnfGain;
+            document.getElementById('out-net-rev').innerText = '€' + Math.floor(lifetimeNetEur).toLocaleString();
+            document.getElementById('out-burn').innerText = '€' + Math.floor(monthlyBurn).toLocaleString();
+            
+            const weeksEl = document.getElementById('out-weeks');
+            weeksEl.innerText = maxDevWeeks.toFixed(1);
+
+            // 4. Handle Verdict UI State
+            const verdictBg = document.getElementById('verdict-bg');
+            const verdictRed = document.getElementById('verdict-red');
+            const verdictAmber = document.getElementById('verdict-amber');
+            const verdictGreen = document.getElementById('verdict-green');
+            const iconContainer = document.getElementById('verdict-icon-container');
+
+            // Reset classes
+            verdictBg.className = "p-1 rounded-2xl bg-gradient-to-br transition-colors duration-500 ";
+            weeksEl.className = "text-6xl font-black transition-colors duration-500 ";
+            verdictRed.classList.add('hidden');
+            verdictAmber.classList.add('hidden');
+            verdictGreen.classList.add('hidden');
+
+            if (maxDevWeeks < 8) {
+                verdictBg.className += "from-rose-500/50 to-red-900/50";
+                weeksEl.className += "text-rose-500";
+                verdictRed.classList.remove('hidden');
+                iconContainer.innerHTML = '<i data-lucide="alert-triangle" class="text-rose-500 w-6 h-6"></i>';
+            } else if (maxDevWeeks < 24) {
+                verdictBg.className += "from-amber-500/50 to-orange-900/50";
+                weeksEl.className += "text-amber-500";
+                verdictAmber.classList.remove('hidden');
+                iconContainer.innerHTML = '<i data-lucide="alert-circle" class="text-amber-500 w-6 h-6"></i>';
+            } else {
+                verdictBg.className += "from-emerald-500/50 to-teal-900/50";
+                weeksEl.className += "text-emerald-500";
+                verdictGreen.classList.remove('hidden');
+                iconContainer.innerHTML = '<i data-lucide="check-circle-2" class="text-emerald-500 w-6 h-6"></i>';
+            }
+            
+            // Re-render the specific dynamic icon
+            lucide.createIcons();
+        }
+
+        // 5. Attach Event Listeners
+        const inputs = [inpWishlists, inpPrice, inpConv, inpCol, inpOpp];
+        inputs.forEach(input => {
+            input.addEventListener('input', updateCalculations);
+        });
+
+        // Initial Calculation on Load
+        updateCalculations();
+    </script>
+</body>
+</html>
