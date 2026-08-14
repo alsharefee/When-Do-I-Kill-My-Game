@@ -1,4 +1,4 @@
-# When Do I Kill My Game 💀
+# When Do I Kill My Game? 💀
 
 Welcome to the most depressing (yet highly scientific) calculator on the internet. 
 

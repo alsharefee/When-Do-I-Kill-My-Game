@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>When Do I Kill My Game</title>
-    
+    <title>When Do I Kill My Game? 💀</title>
+
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Load Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Import Google Fonts (Inter & JetBrains Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Premium Tailwind Config -->
     <script>
@@ -43,6 +46,7 @@
             width: 100%;
             background: transparent;
         }
+
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
             height: 24px;
@@ -55,38 +59,45 @@
             box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
             transition: transform 0.1s;
         }
+
         input[type=range]::-webkit-slider-thumb:hover {
             transform: scale(1.1);
         }
+
         input[type=range]::-webkit-slider-runnable-track {
             width: 100%;
             height: 8px;
             cursor: pointer;
-            background: #1e293b; /* slate-800 */
+            background: #1e293b;
+            /* slate-800 */
             border-radius: 4px;
         }
+
         input[type=range]:focus {
             outline: none;
         }
     </style>
 </head>
+
 <body class="bg-slate-950 text-slate-300 font-sans selection:bg-brand-500/30 min-h-screen p-4 md:p-8 overflow-x-hidden">
 
     <div class="max-w-5xl mx-auto relative space-y-10">
-        
+
         <!-- Subtle Background Glow -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-500/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-500/10 blur-[120px] rounded-full pointer-events-none -z-10">
+        </div>
 
         <!-- HEADER -->
         <header class="text-center pt-4">
             <div class="flex items-center justify-center gap-4 mb-4">
-                <div class="p-3 bg-brand-500/10 rounded-xl border border-brand-500/20">
-                    <i data-lucide="target" class="text-brand-500 w-8 h-8"></i>
-                </div>
-                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">When Do I Kill My Game</h1>
+
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">When Do I Kill My Game? 💀
+                </h1>
             </div>
             <p class="text-slate-400 max-w-3xl mx-auto text-lg leading-relaxed">
-                A highly scientific calculator to tell you when it's time to take your dream project out back and put it out of its misery. Calculate the exact moment you'll need to go back to making enterprise B2B software.
+                A highly scientific calculator to tell you when it's time to take your dream project out back and put it
+                out of its misery. Calculate the exact moment you'll need to go back to making enterprise B2B software.
             </p>
         </header>
 
@@ -96,16 +107,18 @@
                 <i data-lucide="sliders-horizontal" class="text-slate-400 w-6 h-6"></i>
                 The Copium Dials
             </h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-end">
-                
+
                 <!-- Wishlists Input -->
                 <div class="bg-slate-950/40 p-5 rounded-2xl border border-slate-800/50">
                     <div class="flex justify-between items-center mb-4">
                         <label class="text-sm font-medium text-slate-400 flex items-center gap-2">
-                            <i data-lucide="heart" class="w-4 h-4 text-rose-400"></i> Delusional Wishlists
+                            <i data-lucide="heart" class="w-4 h-4 text-rose-400"></i> Wishlists
                         </label>
-                        <span class="text-xl font-bold text-white font-mono" id="val-wishlists">1000</span>
+                        <span
+                            class="text-xl font-bold text-white font-mono cursor-pointer hover:bg-slate-800 rounded px-2 py-1 -mr-2 transition-colors outline-none focus:ring-2 focus:ring-brand-500"
+                            id="val-wishlists" contenteditable="true" title="Click to edit">1,000</span>
                     </div>
                     <input type="range" id="inp-wishlists" min="0" max="10000" step="10" value="1000">
                 </div>
@@ -116,7 +129,9 @@
                         <label class="text-sm font-medium text-slate-400 flex items-center gap-2">
                             <i data-lucide="tags" class="w-4 h-4 text-emerald-400"></i> Price (USD)
                         </label>
-                        <span class="text-xl font-bold text-white font-mono" id="val-price">$14.99</span>
+                        <span
+                            class="text-xl font-bold text-white font-mono cursor-pointer hover:bg-slate-800 rounded px-2 py-1 -mr-2 transition-colors outline-none focus:ring-2 focus:ring-brand-500"
+                            id="val-price" contenteditable="true" title="Click to edit">$14.99</span>
                     </div>
                     <input type="range" id="inp-price" min="4.99" max="39.99" step="1" value="14.99">
                 </div>
@@ -127,7 +142,9 @@
                         <label class="text-sm font-medium text-slate-400 flex items-center gap-2">
                             <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i> Conversion (Hopium %)
                         </label>
-                        <span class="text-xl font-bold text-white font-mono" id="val-conv">10%</span>
+                        <span
+                            class="text-xl font-bold text-white font-mono cursor-pointer hover:bg-slate-800 rounded px-2 py-1 -mr-2 transition-colors outline-none focus:ring-2 focus:ring-brand-500"
+                            id="val-conv" contenteditable="true" title="Click to edit">10%</span>
                     </div>
                     <input type="range" id="inp-conv" min="1" max="20" step="0.5" value="10">
                 </div>
@@ -138,24 +155,31 @@
                         <label class="text-sm font-medium text-slate-400 flex items-center gap-2">
                             <i data-lucide="coffee" class="w-4 h-4 text-orange-400"></i> Ramen Budget / Month
                         </label>
-                        <span class="text-xl font-bold text-white font-mono" id="val-col">$2000</span>
+                        <span
+                            class="text-xl font-bold text-white font-mono cursor-pointer hover:bg-slate-800 rounded px-2 py-1 -mr-2 transition-colors outline-none focus:ring-2 focus:ring-brand-500"
+                            id="val-col" contenteditable="true" title="Click to edit">$2000</span>
                     </div>
                     <input type="range" id="inp-col" min="0" max="10000" step="50" value="2000">
                 </div>
 
                 <!-- SNF Status Input -->
-                <div class="bg-slate-950/40 p-4 rounded-2xl border border-slate-800/50 h-full flex flex-col justify-center">
+                <div
+                    class="bg-slate-950/40 p-4 rounded-2xl border border-slate-800/50 h-full flex flex-col justify-center">
                     <label class="text-sm font-medium text-slate-400 flex items-center gap-2 mb-3">
                         <i data-lucide="calendar-check" class="w-4 h-4 text-blue-400"></i> Steam Next Fest Status
                     </label>
                     <div class="flex bg-slate-950/80 p-1.5 rounded-xl border border-slate-800/80 w-full">
                         <label class="flex-1 text-center cursor-pointer">
                             <input type="radio" name="snf-status" value="before" class="peer sr-only" checked>
-                            <div class="py-2.5 text-sm font-bold text-slate-500 rounded-lg peer-checked:bg-brand-500 peer-checked:text-white transition-all shadow-sm">Before SNF</div>
+                            <div
+                                class="py-2.5 text-sm font-bold text-slate-500 rounded-lg peer-checked:bg-brand-500 peer-checked:text-white transition-all shadow-sm">
+                                Before SNF</div>
                         </label>
                         <label class="flex-1 text-center cursor-pointer">
                             <input type="radio" name="snf-status" value="after" class="peer sr-only">
-                            <div class="py-2.5 text-sm font-bold text-slate-500 rounded-lg peer-checked:bg-slate-700 peer-checked:text-white transition-all shadow-sm">Already Done</div>
+                            <div
+                                class="py-2.5 text-sm font-bold text-slate-500 rounded-lg peer-checked:bg-slate-700 peer-checked:text-white transition-all shadow-sm">
+                                Already Done</div>
                         </label>
                     </div>
                 </div>
@@ -165,34 +189,40 @@
 
         <!-- OUTPUTS (THE METRICS) -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-6 relative overflow-hidden group text-center md:text-left">
+            <div
+                class="bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-6 relative overflow-hidden group text-center md:text-left">
                 <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
                     <i data-lucide="rocket" class="w-32 h-32 text-white"></i>
                 </div>
                 <p class="text-slate-400 text-sm font-bold uppercase tracking-wide mb-2">Launch Wishlists</p>
                 <p class="text-4xl lg:text-5xl font-mono text-white mb-3" id="out-launch-wishlists">0</p>
                 <p class="text-xs text-slate-500 flex items-center justify-center md:justify-start gap-1 font-medium">
-                    <span class="w-1 h-1 bg-brand-500 rounded-full"></span> Includes <span class="font-mono text-slate-300 mx-1" id="out-snf-gain">0</span> from SNF
+                    <span class="w-1 h-1 bg-brand-500 rounded-full"></span> Includes <span
+                        class="font-mono text-slate-300 mx-1" id="out-snf-gain">0</span> from SNF
                 </p>
             </div>
-            
-            <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-6 relative overflow-hidden group text-center md:text-left">
+
+            <div
+                class="bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-6 relative overflow-hidden group text-center md:text-left">
                 <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
                     <i data-lucide="coins" class="w-32 h-32 text-emerald-400"></i>
                 </div>
                 <p class="text-slate-400 text-sm font-bold uppercase tracking-wide mb-2">Cash (After Gaben)</p>
-                <p class="text-4xl lg:text-5xl font-mono text-emerald-400 mb-3 drop-shadow-[0_0_10px_rgba(52,211,153,0.3)]" id="out-net-rev">$0</p>
+                <p class="text-4xl lg:text-5xl font-mono text-emerald-400 mb-3 drop-shadow-[0_0_10px_rgba(52,211,153,0.3)]"
+                    id="out-net-rev">$0</p>
                 <p class="text-xs text-slate-500 flex items-center justify-center md:justify-start gap-1 font-medium">
                     <span class="w-1 h-1 bg-emerald-500 rounded-full"></span> Post-tax & refunds
                 </p>
             </div>
 
-            <div class="bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-6 relative overflow-hidden group text-center md:text-left">
+            <div
+                class="bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 rounded-3xl p-6 relative overflow-hidden group text-center md:text-left">
                 <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
                     <i data-lucide="flame" class="w-32 h-32 text-rose-400"></i>
                 </div>
                 <p class="text-slate-400 text-sm font-bold uppercase tracking-wide mb-2">Bleeding Rate</p>
-                <p class="text-4xl lg:text-5xl font-mono text-rose-400 mb-3 drop-shadow-[0_0_10px_rgba(251,113,133,0.3)]" id="out-burn">$0</p>
+                <p class="text-4xl lg:text-5xl font-mono text-rose-400 mb-3 drop-shadow-[0_0_10px_rgba(251,113,133,0.3)]"
+                    id="out-burn">$0</p>
                 <p class="text-xs text-slate-500 flex items-center justify-center md:justify-start gap-1 font-medium">
                     <span class="w-1 h-1 bg-rose-500 rounded-full"></span> Food, rent, regret
                 </p>
@@ -202,78 +232,115 @@
         <!-- THE VERDICT -->
         <div id="verdict-wrapper" class="rounded-3xl p-1 transition-all duration-700 bg-slate-800/50 shadow-xl">
             <div class="bg-slate-950 rounded-[22px] p-8 md:p-12 h-full w-full relative overflow-hidden">
-                
+
                 <!-- Dynamic Background Glow -->
-                <div id="verdict-glow" class="absolute inset-0 opacity-10 transition-all duration-700 bg-slate-500"></div>
+                <div id="verdict-glow" class="absolute inset-0 opacity-10 transition-all duration-700 bg-slate-500">
+                </div>
 
                 <div class="relative z-10">
-                    <div class="flex flex-col md:flex-row items-center md:items-start justify-between border-b border-slate-800/80 pb-8 mb-8 gap-8 text-center md:text-left">
+                    <div
+                        class="flex flex-col md:flex-row items-center md:items-start justify-between border-b border-slate-800/80 pb-8 mb-8 gap-8 text-center md:text-left">
                         <div>
-                            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4 flex items-center justify-center md:justify-start gap-3">
-                                <div id="verdict-icon-container" class="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                            <h2
+                                class="text-2xl md:text-3xl font-extrabold text-white mb-4 flex items-center justify-center md:justify-start gap-3">
+                                <div id="verdict-icon-container"
+                                    class="p-2 rounded-xl bg-slate-900 border border-slate-800">
                                     <i data-lucide="activity" class="text-slate-400 w-6 h-6"></i>
                                 </div>
                                 System Verdict
                             </h2>
                             <p class="text-slate-400 max-w-2xl text-base md:text-lg leading-relaxed">
-                                The cold, hard math on how long you can pretend this is a viable business before you end up living in a cardboard box and eating ketchup packets.
+                                The cold, hard math on how long you can pretend this is a viable business before you end
+                                up living in a cardboard box and eating ketchup packets.
                             </p>
                         </div>
                         <div class="w-full md:w-auto shrink-0 flex flex-col items-center md:items-end">
-                            <div id="out-weeks" class="text-7xl md:text-8xl lg:text-9xl font-mono font-black text-white tracking-tighter transition-colors duration-700 drop-shadow-2xl">0.0</div>
-                            <div class="text-slate-500 font-bold uppercase tracking-widest mt-2 text-sm md:text-base">Weeks Left To Live</div>
+                            <div id="out-weeks"
+                                class="text-7xl md:text-8xl lg:text-9xl font-mono font-black text-white tracking-tighter transition-colors duration-700 drop-shadow-2xl">
+                                0.0</div>
+                            <div class="text-slate-500 font-bold uppercase tracking-widest mt-2 text-sm md:text-base">
+                                Weeks Left To Live</div>
+                            <div class="mt-3 flex gap-4 text-slate-400 font-mono text-sm md:text-base">
+                                <div><span id="out-months" class="font-bold text-white text-lg md:text-xl">0.0</span>
+                                    Months</div>
+                                <div class="text-slate-600">|</div>
+                                <div><span id="out-years" class="font-bold text-white text-lg md:text-xl">0.0</span>
+                                    Years</div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- RED DIRECTIVE -->
                     <div id="verdict-red" class="hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <h3 class="text-lg font-bold text-white mb-4 flex items-center justify-center md:justify-start gap-2">
+                        <h3
+                            class="text-lg font-bold text-white mb-4 flex items-center justify-center md:justify-start gap-2">
                             <i data-lucide="alert-triangle" class="text-rose-500 w-5 h-5"></i> Harsh Truth Time
                         </h3>
                         <div class="space-y-6">
-                            <p class="text-rose-200 bg-rose-950/40 p-6 rounded-2xl border border-rose-900/50 text-base md:text-lg leading-relaxed shadow-[inset_0_0_20px_rgba(225,29,72,0.1)]">
-                                <strong class="text-rose-400">ABORT MISSION:</strong> Your game is currently performing like a lead balloon. It's time to gracefully back away, scrub your hard drive, and update your LinkedIn profile.
+                            <p
+                                class="text-rose-200 bg-rose-950/40 p-6 rounded-2xl border border-rose-900/50 text-base md:text-lg leading-relaxed shadow-[inset_0_0_20px_rgba(225,29,72,0.1)]">
+                                <strong class="text-rose-400">ABORT MISSION:</strong> Your game is currently performing
+                                like a lead balloon. It's time to gracefully back away, scrub your hard drive, and
+                                update your LinkedIn profile.
                             </p>
                             <ul class="space-y-3 text-slate-300 text-base max-w-4xl mx-auto md:mx-0">
-                                <li class="flex gap-3"><span class="text-rose-500 font-bold">•</span> <strong>Weeks 1-2:</strong> Delete all those ambitious ideas you had in the shower.</li>
-                                <li class="flex gap-3"><span class="text-rose-500 font-bold">•</span> <strong>Week 3:</strong> Staple together whatever you have. Slap on some duct tape.</li>
-                                <li class="flex gap-3"><span class="text-rose-500 font-bold">•</span> <strong>Week 4:</strong> Click "Publish" while looking away from the screen.</li>
-                                <li class="flex gap-3"><span class="text-rose-500 font-bold">•</span> <strong>Week 5:</strong> Try not to look at the review scores. (They are mixed).</li>
-                                <li class="flex gap-3"><span class="text-rose-500 font-bold">•</span> <strong>Week 6:</strong> Abandon ship and start a new prototype you will also abandon.</li>
+                                <li class="flex gap-3"><span class="text-rose-500 font-bold">•</span> <strong>Weeks
+                                        1-2:</strong> Delete all those ambitious ideas you had in the shower.</li>
+                                <li class="flex gap-3"><span class="text-rose-500 font-bold">•</span> <strong>Week
+                                        3:</strong> Staple together whatever you have. Slap on some duct tape.</li>
+                                <li class="flex gap-3"><span class="text-rose-500 font-bold">•</span> <strong>Week
+                                        4:</strong> Click "Publish" while looking away from the screen.</li>
+                                <li class="flex gap-3"><span class="text-rose-500 font-bold">•</span> <strong>Week
+                                        5:</strong> Try not to look at the review scores. (They are mixed).</li>
+                                <li class="flex gap-3"><span class="text-rose-500 font-bold">•</span> <strong>Week
+                                        6:</strong> Abandon ship and start a new prototype you will also abandon.</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- AMBER DIRECTIVE -->
                     <div id="verdict-amber" class="hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <h3 class="text-lg font-bold text-white mb-4 flex items-center justify-center md:justify-start gap-2">
+                        <h3
+                            class="text-lg font-bold text-white mb-4 flex items-center justify-center md:justify-start gap-2">
                             <i data-lucide="alert-circle" class="text-amber-500 w-5 h-5"></i> Harsh Truth Time
                         </h3>
                         <div class="space-y-6">
-                            <p class="text-amber-200 bg-amber-950/40 p-6 rounded-2xl border border-amber-900/50 text-base md:text-lg leading-relaxed shadow-[inset_0_0_20px_rgba(217,119,6,0.1)]">
-                                <strong class="text-amber-400">TREADING WATER:</strong> You might buy a few more months of instant noodles, but that's about it. Don't let this minor success give you a big head.
+                            <p
+                                class="text-amber-200 bg-amber-950/40 p-6 rounded-2xl border border-amber-900/50 text-base md:text-lg leading-relaxed shadow-[inset_0_0_20px_rgba(217,119,6,0.1)]">
+                                <strong class="text-amber-400">TREADING WATER:</strong> You might buy a few more months
+                                of instant noodles, but that's about it. Don't let this minor success give you a big
+                                head.
                             </p>
                             <ul class="space-y-3 text-slate-300 text-base max-w-4xl mx-auto md:mx-0">
-                                <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Finish whatever you're building right now and DO NOT add multiplayer.</li>
-                                <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Do not write a "post-launch roadmap". You are not Hello Games.</li>
-                                <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> If wishlist velocity drops, immediately refer to the red protocol above.</li>
+                                <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Finish whatever
+                                    you're building right now and DO NOT add multiplayer.</li>
+                                <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Do not write a
+                                    "post-launch roadmap". You are not Hello Games.</li>
+                                <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> If wishlist
+                                    velocity drops, immediately refer to the red protocol above.</li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- GREEN DIRECTIVE -->
                     <div id="verdict-green" class="hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <h3 class="text-lg font-bold text-white mb-4 flex items-center justify-center md:justify-start gap-2">
+                        <h3
+                            class="text-lg font-bold text-white mb-4 flex items-center justify-center md:justify-start gap-2">
                             <i data-lucide="check-circle-2" class="text-emerald-500 w-5 h-5"></i> Harsh Truth Time
                         </h3>
                         <div class="space-y-6">
-                            <p class="text-emerald-200 bg-emerald-950/40 p-6 rounded-2xl border border-emerald-900/50 text-base md:text-lg leading-relaxed shadow-[inset_0_0_20px_rgba(16,185,129,0.1)]">
-                                <strong class="text-emerald-400">HOLY CRAP, YOU MIGHT MAKE IT:</strong> The math says you can actually afford to keep working on this! 
+                            <p
+                                class="text-emerald-200 bg-emerald-950/40 p-6 rounded-2xl border border-emerald-900/50 text-base md:text-lg leading-relaxed shadow-[inset_0_0_20px_rgba(16,185,129,0.1)]">
+                                <strong class="text-emerald-400">HOLY CRAP, YOU MIGHT MAKE IT:</strong> The math says
+                                you can actually afford to keep working on this!
                             </p>
                             <ul class="space-y-3 text-slate-300 text-base max-w-4xl mx-auto md:mx-0">
-                                <li class="flex gap-3"><span class="text-emerald-500 font-bold">•</span> Don't let it go to your head, but maybe treat yourself to a non-ramen meal tonight.</li>
-                                <li class="flex gap-3"><span class="text-emerald-500 font-bold">•</span> Your game might actually be fun. Or the algorithm glitched. We take those.</li>
-                                <li class="flex gap-3"><span class="text-emerald-500 font-bold">•</span> Please don't blow the budget on hiring an orchestral composer.</li>
+                                <li class="flex gap-3"><span class="text-emerald-500 font-bold">•</span> Don't let it go
+                                    to your head, but maybe treat yourself to a non-ramen meal tonight.</li>
+                                <li class="flex gap-3"><span class="text-emerald-500 font-bold">•</span> Your game might
+                                    actually be fun. Or the algorithm glitched. We take those.</li>
+                                <li class="flex gap-3"><span class="text-emerald-500 font-bold">•</span> Please don't
+                                    blow the budget on hiring an orchestral composer.</li>
                             </ul>
                         </div>
                     </div>
@@ -286,11 +353,15 @@
             <h4 class="text-slate-300 font-bold mb-4 flex items-center gap-2">
                 <i data-lucide="info" class="w-5 h-5 text-brand-500"></i> Methodology & Assumptions
             </h4>
-            <p><strong class="text-white">Gaben's Toll (55% Ratio):</strong> Accounts for Valve's 30% cut, taxes, regional pricing (where your game is $2 in Argentina), and people rage-refunding your bugs.</p>
-            <p><strong class="text-white">Steam Next Fest Slot Machine:</strong> Calculated purely on vibes and historical data. If you have under 1k wishlists, you get ~462 pity wishlists. Over 1k, the algorithm blesses you with ~1.5k.</p>
-            <p><strong class="text-white">The Starving Artist Model:</strong> Assumes you still need to pay rent. As a solo dev, working on this game actively burns a hole in your wallet.</p>
+            <p><strong class="text-white">Gaben's Toll (55% Ratio):</strong> Accounts for Valve's 30% cut, taxes,
+                regional pricing (where your game is $2 in Argentina), and people rage-refunding your bugs.</p>
+            <p><strong class="text-white">Steam Next Fest Slot Machine:</strong> Calculated purely on vibes and
+                historical data. If you have under 1k wishlists, you get ~462 pity wishlists. Over 1k, the algorithm
+                blesses you with ~1.5k.</p>
+            <p><strong class="text-white">The Starving Artist Model:</strong> Assumes you still need to pay rent. As a
+                dev, working on this game actively burns a hole in your wallet.</p>
         </div>
-        
+
     </div>
 
     <script>
@@ -307,6 +378,50 @@
         const inpConv = document.getElementById('inp-conv');
         const inpCol = document.getElementById('inp-col');
 
+        const valWishlists = document.getElementById('val-wishlists');
+        const valPrice = document.getElementById('val-price');
+        const valConv = document.getElementById('val-conv');
+        const valCol = document.getElementById('val-col');
+
+        // Generic text input handler for all dials
+        function setupEditableLabel(labelEl, inputEl, parseType, maxStep) {
+            function handleEdit(e) {
+                if (e.type === 'blur' || (e.type === 'keydown' && e.key === 'Enter')) {
+                    if (e.type === 'keydown') e.preventDefault();
+                    // Strip out $, %, and commas
+                    let val = labelEl.innerText.replace(/[$,%]/g, '').trim();
+                    let num = parseType === 'float' ? parseFloat(val) : parseInt(val);
+                    if (isNaN(num) || num < 0) num = 0;
+
+                    if (num > parseFloat(inputEl.max)) {
+                        inputEl.max = Math.ceil(num / maxStep) * maxStep;
+                    }
+
+                    inputEl.value = num;
+                    labelEl.blur();
+                    updateCalculations();
+                }
+            }
+
+            labelEl.addEventListener('blur', handleEdit);
+            labelEl.addEventListener('keydown', handleEdit);
+            labelEl.addEventListener('focus', () => {
+                labelEl.innerText = labelEl.innerText.replace(/[$,%]/g, '');
+                setTimeout(() => {
+                    const selection = window.getSelection();
+                    const range = document.createRange();
+                    range.selectNodeContents(labelEl);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                }, 10);
+            });
+        }
+
+        setupEditableLabel(valWishlists, inpWishlists, 'int', 1000);
+        setupEditableLabel(valPrice, inpPrice, 'float', 10);
+        setupEditableLabel(valConv, inpConv, 'float', 10);
+        setupEditableLabel(valCol, inpCol, 'int', 1000);
+
         function updateCalculations() {
             // 1. Get Values & Update Labels
             const wishlists = parseFloat(inpWishlists.value);
@@ -322,19 +437,19 @@
             // 2. Perform Math
             let expectedSnfGain = 0;
             const snfStatus = document.querySelector('input[name="snf-status"]:checked').value;
-            
+
             if (snfStatus === 'before') {
                 if (wishlists < 1000) expectedSnfGain = 462;
                 else if (wishlists < 10000) expectedSnfGain = 1500;
                 else expectedSnfGain = 5000;
             }
-            
+
             const launchWishlists = wishlists + expectedSnfGain;
             const week1Sales = launchWishlists * (conversionRate / 100);
             const lifetimeUnits = week1Sales * LIFETIME_MULTIPLIER;
             const lifetimeGrossUsd = lifetimeUnits * priceUsd;
             const lifetimeNetUsd = lifetimeGrossUsd * GOLDEN_RATIO;
-            
+
             const monthlyBurn = costOfLiving;
             const maxDevMonths = monthlyBurn > 0 ? lifetimeNetUsd / monthlyBurn : 0;
             const maxDevWeeks = maxDevMonths * 4.33;
@@ -344,9 +459,13 @@
             document.getElementById('out-snf-gain').innerText = expectedSnfGain.toLocaleString();
             document.getElementById('out-net-rev').innerText = '$' + Math.floor(lifetimeNetUsd).toLocaleString();
             document.getElementById('out-burn').innerText = '$' + Math.floor(monthlyBurn).toLocaleString();
-            
+
             const weeksEl = document.getElementById('out-weeks');
             weeksEl.innerText = maxDevWeeks.toFixed(1);
+
+            const maxDevYears = maxDevMonths / 12;
+            document.getElementById('out-months').innerText = maxDevMonths.toFixed(1);
+            document.getElementById('out-years').innerText = maxDevYears.toFixed(2);
 
             // 4. Handle Verdict UI State
             const verdictWrapper = document.getElementById('verdict-wrapper');
@@ -383,7 +502,7 @@
                 iconContainer.innerHTML = '<i data-lucide="check-circle-2" class="text-emerald-500 w-6 h-6"></i>';
                 iconContainer.className = "p-2 rounded-xl bg-emerald-950/50 border border-emerald-900";
             }
-            
+
             // Re-render the specific dynamic icon
             lucide.createIcons();
         }
@@ -401,4 +520,5 @@
         updateCalculations();
     </script>
 </body>
+
 </html>
