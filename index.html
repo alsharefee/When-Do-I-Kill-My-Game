@@ -104,6 +104,23 @@
                         </div>
                     </div>
                     
+                    <!-- SNF Status Input -->
+                    <div class="mb-4 bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-sm">
+                        <label class="text-sm font-medium text-slate-300 flex items-center gap-2 mb-3">
+                            <i data-lucide="calendar" class="text-blue-400 w-4 h-4"></i> Steam Next Fest Status
+                        </label>
+                        <div class="flex bg-slate-900 rounded-lg p-1">
+                            <label class="flex-1 text-center cursor-pointer">
+                                <input type="radio" name="snf-status" value="before" class="peer sr-only" checked>
+                                <div class="py-2 rounded-md text-sm font-bold text-slate-400 peer-checked:bg-blue-500 peer-checked:text-white transition-colors">Before SNF</div>
+                            </label>
+                            <label class="flex-1 text-center cursor-pointer">
+                                <input type="radio" name="snf-status" value="after" class="peer sr-only">
+                                <div class="py-2 rounded-md text-sm font-bold text-slate-400 peer-checked:bg-blue-500 peer-checked:text-white transition-colors">Already Done</div>
+                            </label>
+                        </div>
+                    </div>
+                    
                     <!-- Macroeconomic Inputs -->
                     <div class="mt-8 pt-6 border-t border-slate-800">
                         <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Real Life Getting In The Way</h3>
@@ -264,9 +281,13 @@
 
             // 2. Perform Math
             let expectedSnfGain = 0;
-            if (wishlists < 1000) expectedSnfGain = 462;
-            else if (wishlists < 10000) expectedSnfGain = 1500;
-            else expectedSnfGain = 5000;
+            const snfStatus = document.querySelector('input[name="snf-status"]:checked').value;
+            
+            if (snfStatus === 'before') {
+                if (wishlists < 1000) expectedSnfGain = 462;
+                else if (wishlists < 10000) expectedSnfGain = 1500;
+                else expectedSnfGain = 5000;
+            }
             
             const launchWishlists = wishlists + expectedSnfGain;
             const week1Sales = launchWishlists * (conversionRate / 100);
@@ -326,6 +347,9 @@
         const inputs = [inpWishlists, inpPrice, inpConv, inpCol];
         inputs.forEach(input => {
             input.addEventListener('input', updateCalculations);
+        });
+        document.querySelectorAll('input[name="snf-status"]').forEach(radio => {
+            radio.addEventListener('change', updateCalculations);
         });
 
         // Initial Calculation on Load
