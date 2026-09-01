@@ -26,7 +26,7 @@ Are you a solo indie dev? Have you been working on your "dream game" for 3 years
 Found a bug? Want to add a new soul-crushing metric (like "Cost of Unity Pro License" or "Asset Flip Guilt")? Feel free to open an issue or submit a pull request! Just don't ask me to add multiplayer.
 
 ## Support
-If this tool saved you from financial ruin, please click the Star button at the top of this page. It is free and it helps heal my broken dreams.
+If this tool saved you from financial ruin, please click the Star ⭐ button at the top of this page. It is free and it helps heal my broken dreams.
 
 ## License 
 Do whatever you want with this code. My dreams are already dead anyway.
