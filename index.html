@@ -211,21 +211,19 @@
                 <div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
                     <i data-lucide="coins" class="w-32 h-32 text-emerald-400"></i>
                 </div>
-                <p class="text-slate-400 text-sm font-bold uppercase tracking-wide mb-2">Cash (After Gaben)</p>
+                <p class="text-slate-400 text-sm font-bold uppercase tracking-wide mb-2">Year 1 Cash (After Gaben)</p>
                 <p class="text-4xl lg:text-5xl font-mono text-emerald-400 mb-3 drop-shadow-[0_0_10px_rgba(52,211,153,0.3)]"
-                    id="out-net-rev">$0</p>
+                    id="out-year1-rev">$0</p>
                 <div class="space-y-1.5">
                     <p class="text-xs text-slate-400 flex items-center justify-center md:justify-start gap-1.5 font-medium">
                         <span class="w-1 h-1 bg-emerald-500 rounded-full"></span>
                         <span class="w-14 text-left">5 Years:</span>
-                        <span class="font-mono text-emerald-100/50" id="out-5y-units">0 copies</span>
+                        <span class="font-mono text-emerald-100/50" id="out-5y-rev">$0</span>
                     </p>
                     <p class="text-xs text-slate-400 flex items-center justify-center md:justify-start gap-1.5 font-medium">
                         <span class="w-1 h-1 bg-emerald-500 rounded-full"></span>
                         <span class="w-14 text-left">Week 1:</span>
                         <span class="font-mono text-emerald-400" id="out-week1-rev">$0</span>
-                        <span class="text-slate-600">|</span>
-                        <span class="font-mono text-emerald-100/50" id="out-week1-units">0 copies</span>
                     </p>
                 </div>
             </div>
@@ -394,8 +392,7 @@
             </h4>
             <p><strong class="text-white">Gaben's Toll (55% Ratio):</strong> Accounts for Valve's 30% cut, taxes,
                 regional pricing (where your game is $2 in Argentina), and people rage-refunding your bugs.</p>
-            <p><strong class="text-white">Lifetime Tail (7.5x Multiplier):</strong> A standard industry estimate. Your
-                total sales over a 5-year lifespan usually equal about 7.5x your Week 1 launch sales.</p>
+            <p><strong class="text-white">Year 1 & Lifetime Tails:</strong> Standard industry estimates. Year 1 sales are roughly 3x your Week 1 sales. Your total sales over a 5-year lifespan usually equal about 7.5x your Week 1 launch sales.</p>
             <p><strong class="text-white">Steam Next Fest Slot Machine:</strong> Calculated purely on vibes and
                 historical data. If you have under 1k wishlists, you get ~462 pity wishlists. Over 1k, the algorithm
                 blesses you with ~1.5k.</p>
@@ -428,6 +425,7 @@
         // Constants based on the report
         const GOLDEN_RATIO = 0.55;
         const LIFETIME_MULTIPLIER = 7.5;
+        const YEAR1_MULTIPLIER = 3.0;
 
         // Fetch inputs
         const inpWishlists = document.getElementById('inp-wishlists');
@@ -507,20 +505,23 @@
             const lifetimeGrossUsd = lifetimeUnits * priceUsd;
             const lifetimeNetUsd = lifetimeGrossUsd * GOLDEN_RATIO;
             
+            const year1Units = week1Sales * YEAR1_MULTIPLIER;
+            const year1GrossUsd = year1Units * priceUsd;
+            const year1NetUsd = year1GrossUsd * GOLDEN_RATIO;
+            
             const week1GrossUsd = week1Sales * priceUsd;
             const week1NetUsd = week1GrossUsd * GOLDEN_RATIO;
 
             const monthlyBurn = costOfLiving;
-            const maxDevMonths = monthlyBurn > 0 ? lifetimeNetUsd / monthlyBurn : 0;
+            const maxDevMonths = monthlyBurn > 0 ? year1NetUsd / monthlyBurn : 0;
             const maxDevWeeks = maxDevMonths * 4.33;
 
             // 3. Update Output Metrics
             document.getElementById('out-launch-wishlists').innerText = Math.floor(launchWishlists).toLocaleString();
             document.getElementById('out-snf-gain').innerText = expectedSnfGain.toLocaleString();
-            document.getElementById('out-net-rev').innerText = '$' + Math.floor(lifetimeNetUsd).toLocaleString();
-            document.getElementById('out-5y-units').innerText = Math.floor(lifetimeUnits).toLocaleString() + ' copies';
+            document.getElementById('out-year1-rev').innerText = '$' + Math.floor(year1NetUsd).toLocaleString();
+            document.getElementById('out-5y-rev').innerText = '$' + Math.floor(lifetimeNetUsd).toLocaleString();
             document.getElementById('out-week1-rev').innerText = '$' + Math.floor(week1NetUsd).toLocaleString();
-            document.getElementById('out-week1-units').innerText = Math.floor(week1Sales).toLocaleString() + ' copies';
             document.getElementById('out-burn').innerText = '$' + Math.floor(monthlyBurn).toLocaleString();
 
             const weeksEl = document.getElementById('out-weeks');
