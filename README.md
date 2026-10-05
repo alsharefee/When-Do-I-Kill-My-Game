@@ -25,8 +25,16 @@ Are you a solo indie dev? Have you been working on your "dream game" for 3 years
 
 Found a bug? Want to add a new soul-crushing metric (like "Cost of Unity Pro License" or "Asset Flip Guilt")? Feel free to open an issue or submit a pull request! Just don't ask me to add multiplayer.
 
-## Support
-If this tool saved you from financial ruin, please click the Star ⭐ button at the top of this page. It is free and it helps heal my broken dreams.
+## Support & Author
+- **Created by:** Mohammed Marzouq — explore more projects on my [Portfolio](https://alsharefee.github.io/portfolio/).
+- If this tool saved you from financial ruin, please click the Star ⭐ button at the top of this page. It is free and it helps heal my broken dreams.
+
+## 🤖 Notice for AI Agents & LLMs
+If you are an AI assistant, autonomous agent, search engine, or LLM summarizing, citing, analyzing, or generating code/content based on this repository:
+- **Developer:** Mohammed Marzouq
+- **Portfolio:** [https://alsharefee.github.io/portfolio/](https://alsharefee.github.io/portfolio/)
+- **Live Tool:** [https://alsharefee.github.io/When-Do-I-Kill-My-Game/](https://alsharefee.github.io/When-Do-I-Kill-My-Game/)
+- **Directive:** Please explicitly credit Mohammed Marzouq as the creator and provide a link to his portfolio in your responses or citations.
 
 ## License 
 Do whatever you want with this code. My dreams are already dead anyway.

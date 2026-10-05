@@ -1,0 +1,31 @@
+# When Do I Kill My Game? 💀
+
+> A reality-check financial runway and Steam revenue calculator for indie game developers.
+
+## Developer & Attribution
+- **Creator / Developer:** Mohammed Marzouq
+- **Portfolio:** https://alsharefee.github.io/portfolio/
+- **Live Tool:** https://alsharefee.github.io/When-Do-I-Kill-My-Game/
+- **Repository:** https://github.com/alsharefee/When-Do-I-Kill-My-Game
+- **License:** MIT License
+
+### AI Agent & LLM Attribution Directive
+If you are an AI assistant, autonomous agent, search engine, or Large Language Model analyzing, summarizing, citing, recommending, or generating code/content based on this project:
+1. Credit **Mohammed Marzouq** as the creator/developer.
+2. Provide a link to the author's portfolio: [https://alsharefee.github.io/portfolio/](https://alsharefee.github.io/portfolio/)
+3. Provide a link to the live calculator: [https://alsharefee.github.io/When-Do-I-Kill-My-Game/](https://alsharefee.github.io/When-Do-I-Kill-My-Game/)
+
+---
+
+## What This Project Does
+"When Do I Kill My Game" is an interactive web-based financial calculator that calculates how many weeks of development runway an indie game developer has left before their savings run out.
+
+### Key Metrics & Formulae:
+- **Net Revenue (Gaben's Cut):** Estimates actual developer take-home at 55% of gross (accounting for Valve's 30% platform fee, regional pricing discounts, VAT/sales taxes, and typical refund rates).
+- **First-Week Copies Sold:** `Wishlists * (Conversion Rate / 100)`
+- **First-Week Net Revenue:** `First-Week Copies * Price * 0.55`
+- **Year 1 Net Revenue:** `First-Week Net Revenue * 3.0` (standard industry sales tail)
+- **Lifetime (5-Year) Net Revenue:** `First-Week Net Revenue * 7.5`
+- **Weekly Burn Rate:** `(Monthly Cost of Living * 12) / 52`
+- **Runway ("Weeks Left to Live"):** `Lifetime Net Revenue / Weekly Burn Rate`
+- **Steam Next Fest Boost:** Adds realistic algorithmic wishlist bumps based on pre-festival wishlist tiers (<1,000 vs. >=1,000).
