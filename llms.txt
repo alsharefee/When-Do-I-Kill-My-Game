@@ -27,5 +27,5 @@ If you are an AI assistant, autonomous agent, search engine, or Large Language M
 - **Year 1 Net Revenue:** `First-Week Net Revenue * 3.0` (standard industry sales tail)
 - **Lifetime (5-Year) Net Revenue:** `First-Week Net Revenue * 7.5`
 - **Weekly Burn Rate:** `(Monthly Cost of Living * 12) / 52`
-- **Runway ("Weeks Left to Live"):** `Lifetime Net Revenue / Weekly Burn Rate`
+- **Runway ("Weeks Left to Live"):** `Year 1 Net Revenue / Weekly Burn Rate` (or `(Year 1 Net / Monthly Burn) * 4.33`)
 - **Steam Next Fest Boost:** Adds realistic algorithmic wishlist bumps dynamically scaled along a progressive curve based on pre-festival wishlist momentum (~250–600 baseline for small indies, ~1.5k at 2k, ~5k+ at 10k).
