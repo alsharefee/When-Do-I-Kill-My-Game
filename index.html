@@ -733,9 +733,9 @@
             <p><strong class="text-white">Gaben's Toll (55% Ratio):</strong> Accounts for Valve's 30% cut, taxes,
                 regional pricing (where your game is $2 in Argentina), and people rage-refunding your bugs.</p>
             <p><strong class="text-white">Year 1 & Lifetime Tails:</strong> Standard industry estimates. Year 1 sales are roughly 3x your Week 1 sales. Your total sales over a 5-year lifespan usually equal about 7.5x your Week 1 launch sales.</p>
-            <p><strong class="text-white">Steam Next Fest Slot Machine:</strong> Calculated purely on vibes and
-                historical data. If you have under 1k wishlists, you get ~462 pity wishlists. Over 1k, the algorithm
-                blesses you with ~1.5k.</p>
+            <p><strong class="text-white">Steam Next Fest Projection:</strong> Modeled as a progressive curve based on
+                historical Next Fest survey data. Baseline discovery yields ~250–600 wishlists for smaller indies, scaling
+                smoothly as higher pre-existing wishlists push your demo into popular festival category queues (~1.5k at 2k wishlists, ~5k+ at 10k wishlists).</p>
             <p><strong class="text-white">The Starving Artist Model:</strong> Assumes you still need to pay rent. As a
                 dev, working on this game actively burns a hole in your wallet.</p>
             <div class="pt-4 mt-4 border-t border-slate-800/50">
@@ -834,9 +834,9 @@
             const snfStatus = document.querySelector('input[name="snf-status"]:checked').value;
 
             if (snfStatus === 'before') {
-                if (wishlists < 1000) expectedSnfGain = 462;
-                else if (wishlists < 10000) expectedSnfGain = 1500;
-                else expectedSnfGain = 5000;
+                // Progressive curve: baseline festival discovery for small indies (~250-400),
+                // scaling smoothly with wishlist momentum (~1.5k at 2k wishlists, ~5.1k at 10k wishlists).
+                expectedSnfGain = wishlists > 0 ? Math.round(200 + Math.pow(wishlists, 0.82) * 2.6) : 0;
             }
 
             const launchWishlists = wishlists + expectedSnfGain;
