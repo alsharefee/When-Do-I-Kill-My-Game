@@ -11,6 +11,9 @@ Are you a solo indie dev? Have you been working on your "dream game" for 3 years
 
 **"When Do I Kill My Game?"** is a harsh-truth financial runway and revenue estimator designed to tell you exactly when it's time to take your beloved passion project out back and put it out of its misery—before you end up living in a cardboard box eating raw ramen packets.
 
+> *"This made me laugh-cry, it's obviously reductionist but it's also true and your advice lines are hilarious"*  
+> — **[Rami Ismail](https://bsky.app/profile/ramiismail.com)** ([@ramiismail.com](https://ramiismail.com/)) — *"I make games. I help good people make good games in good ways."*
+
 ---
 
 ### 🌐 Try It Live in Your Browser
