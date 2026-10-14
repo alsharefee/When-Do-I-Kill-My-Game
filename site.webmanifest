@@ -1,0 +1,18 @@
+{
+  "name": "When Do I Kill My Game? 💀",
+  "short_name": "Kill My Game?",
+  "description": "A reality-check Steam wishlist and revenue calculator for indie game developers.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

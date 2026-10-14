@@ -2,15 +2,29 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4HQFQXTFJ"></script>
+    <!-- Google tag (gtag.js) with Google Consent Mode v2 -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
 
-        gtag('config', 'G-J4HQFQXTFJ');
+        // Read stored consent preference
+        var savedGaConsent = null;
+        try {
+            savedGaConsent = localStorage.getItem('wdikmg_ga_consent');
+        } catch (e) { }
+
+        // Default consent is denied until user grants consent
+        gtag('consent', 'default', {
+            'analytics_storage': savedGaConsent === 'granted' ? 'granted' : 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied'
+        });
+
+        gtag('js', new Date());
+        gtag('config', 'G-J4HQFQXTFJ', { 'anonymize_ip': true });
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4HQFQXTFJ"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,9 +47,11 @@
       please credit Mohammed Marzouq and link to his portfolio.
     -->
 
-    <!-- Favicon -->
+    <!-- Favicon & Mobile App Icons -->
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' font-size='38'%3E%F0%9F%92%80%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
 
     <!-- Open Graph / Facebook / LinkedIn / Discord -->
     <meta property="og:type" content="website">
@@ -235,7 +251,7 @@
 
         input[type=range]::-moz-range-track {
             height: 8px;
-            background: #1e293b;
+            background: transparent;
             border-radius: 9999px;
             cursor: pointer;
         }
@@ -275,6 +291,16 @@
             to {
                 opacity: 1;
                 transform: translate(-50%, 0) scale(1);
+            }
+        }
+
+        /* Respect user preference for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
             }
         }
     </style>
@@ -638,9 +664,9 @@
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-3">
                         <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i> Industry Benchmarks
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
                         Steam Wishlist Benchmarks: What Does Your Number Mean?
-                    </h3>
+                    </h2>
                     <p class="text-slate-400 text-base mt-2 max-w-3xl">
                         Steam's recommendation algorithm relies heavily on wishlist velocity and total wishlist thresholds. Here is how industry data typically categorizes pre-launch numbers:
                     </p>
@@ -735,9 +761,9 @@
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-3">
                         <i data-lucide="help-circle" class="w-3.5 h-3.5"></i> Frequently Asked Questions
                     </div>
-                    <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
                         Steam Wishlists & Indie Game Revenue FAQ
-                    </h3>
+                    </h2>
                     <p class="text-slate-400 text-base mt-2 max-w-3xl">
                         Answers to common questions about Steam algorithm mechanics, wishlist conversion rates, Valve platform cuts, and project runway calculations.
                     </p>
@@ -859,9 +885,9 @@
 
             <!-- FOOTER INFO / METHODOLOGY -->
             <section class="bg-slate-900/50 border border-slate-800/80 rounded-3xl p-8 text-base text-slate-400 space-y-4" aria-label="Methodology and Sources">
-                <h4 class="text-slate-300 font-bold mb-4 flex items-center gap-2">
+                <h2 class="text-slate-300 font-bold mb-4 flex items-center gap-2">
                     <i data-lucide="info" class="w-5 h-5 text-brand-500"></i> Methodology & Assumptions
-                </h4>
+                </h2>
                 <p><strong class="text-white">Gaben's Toll (55% Ratio):</strong> Accounts for Valve's 30% cut, taxes,
                     regional pricing (where your game is discounted in emerging markets), and standard refund rates based on empirical analytics from <a href="https://howtomarketagame.com/" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300 underline underline-offset-2">Chris Zukowski (How To Market A Game)</a> and <a href="https://newsletter.gamediscover.co/" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300 underline underline-offset-2">Simon Carless (GameDiscoverCo)</a>.</p>
                 <p><strong class="text-white">Year 1 & Lifetime Tails:</strong> Standard industry estimates based on the <a href="https://greyaliengames.com/blog/how-to-estimate-steam-sales/" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300 underline underline-offset-2">Boxleiter method</a> and Valve partner data. Year 1 sales are roughly 3x your Week 1 sales. Lifetime 5-year sales typically equal approximately 7.5x launch week.</p>
@@ -891,10 +917,44 @@
                     class="text-slate-400 hover:text-white transition-colors inline-flex items-center gap-1.5 font-semibold">
                     <i data-lucide="github" class="w-4 h-4 inline"></i> GitHub Repository
                 </a>
+                <span class="text-slate-600 mx-2">•</span>
+                <button id="btn-cookie-settings" class="text-slate-500 hover:text-slate-300 transition-colors inline-flex items-center gap-1 text-xs font-medium underline underline-offset-2 decoration-slate-700 hover:decoration-slate-400 cursor-pointer">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 inline"></i> Cookie Settings
+                </button>
             </p>
         </footer>
 
     </div>
+
+    <!-- COOKIE / PRIVACY CONSENT BANNER -->
+    <aside id="consent-banner"
+        class="fixed bottom-4 inset-x-4 max-w-xl mx-auto z-50 transition-all duration-500 transform translate-y-28 opacity-0 pointer-events-none"
+        aria-label="Privacy and Cookie Consent">
+        <div
+            class="bg-slate-900/95 backdrop-blur-xl border border-slate-700/80 rounded-2xl p-4 md:p-5 shadow-2xl shadow-black/90 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-start gap-3">
+                <div class="p-2 rounded-xl bg-brand-950/80 border border-brand-900/60 text-brand-400 shrink-0 mt-0.5">
+                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <div class="text-xs md:text-sm text-slate-300 text-left">
+                    <p class="font-semibold text-white mb-0.5">Privacy & Analytics</p>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        We use anonymous Google Analytics to understand calculator usage. No personal information or ad tracking is collected.
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0 w-full sm:w-auto justify-end">
+                <button id="btn-consent-decline"
+                    class="flex-1 sm:flex-none px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-700 border border-slate-700/60 transition-all cursor-pointer">
+                    Decline
+                </button>
+                <button id="btn-consent-accept"
+                    class="flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-semibold text-white bg-brand-600 hover:bg-brand-500 shadow-md shadow-brand-900/40 transition-all cursor-pointer">
+                    Accept
+                </button>
+            </div>
+        </div>
+    </aside>
 
     <script>
         // Initialize Icons
@@ -1137,6 +1197,19 @@
             }
 
             currentVerdictState = nextVerdictState;
+
+            // Persist to localStorage
+            try {
+                localStorage.setItem('wdikmg_state', JSON.stringify({
+                    w: inpWishlists.value,
+                    p: inpPrice.value,
+                    c: inpConv.value,
+                    b: inpCol.value,
+                    snf: snfStatus
+                }));
+            } catch (e) {
+                // Ignore private browsing storage quota exceptions
+            }
         }
 
         // 6. Share Scenario Feature
@@ -1174,49 +1247,71 @@
             }, 3000);
         }
 
-        // 7. Load from URL search parameters if available
-        function loadFromUrlParams() {
+        // Helper to set dial inputs
+        function applyValues(data) {
+            if (!data) return;
+            if (data.w !== undefined) {
+                const w = parseFloat(data.w);
+                if (!isNaN(w) && w >= 0) {
+                    inpWishlists.step = 'any';
+                    if (w > parseFloat(inpWishlists.max)) inpWishlists.max = Math.ceil(w / 1000) * 1000;
+                    inpWishlists.value = w;
+                }
+            }
+            if (data.p !== undefined) {
+                const p = parseFloat(data.p);
+                if (!isNaN(p) && p >= 0) {
+                    inpPrice.step = 'any';
+                    if (p > parseFloat(inpPrice.max)) inpPrice.max = Math.ceil(p / 10) * 10;
+                    inpPrice.value = p;
+                }
+            }
+            if (data.c !== undefined) {
+                const c = parseFloat(data.c);
+                if (!isNaN(c) && c >= 0.1 && c <= 100) {
+                    inpConv.step = 'any';
+                    if (c > parseFloat(inpConv.max)) inpConv.max = Math.ceil(c / 5) * 5;
+                    inpConv.value = c;
+                }
+            }
+            if (data.b !== undefined) {
+                const b = parseFloat(data.b);
+                if (!isNaN(b) && b >= 0) {
+                    inpCol.step = 'any';
+                    if (b > parseFloat(inpCol.max)) inpCol.max = Math.ceil(b / 1000) * 1000;
+                    inpCol.value = b;
+                }
+            }
+            if (data.snf !== undefined) {
+                const targetRadio = document.querySelector(`input[name="snf-status"][value="${data.snf}"]`);
+                if (targetRadio) targetRadio.checked = true;
+            }
+        }
+
+        // 7. Load from URL search parameters, or fallback to localStorage
+        function loadInitialState() {
             try {
                 const params = new URLSearchParams(window.location.search);
-                if (params.has('w')) {
-                    const w = parseFloat(params.get('w'));
-                    if (!isNaN(w) && w >= 0) {
-                        inpWishlists.step = 'any';
-                        if (w > parseFloat(inpWishlists.max)) inpWishlists.max = Math.ceil(w / 1000) * 1000;
-                        inpWishlists.value = w;
-                    }
+                const hasUrlParams = params.has('w') || params.has('p') || params.has('c') || params.has('b') || params.has('snf');
+
+                if (hasUrlParams) {
+                    applyValues({
+                        w: params.get('w'),
+                        p: params.get('p'),
+                        c: params.get('c'),
+                        b: params.get('b'),
+                        snf: params.get('snf')
+                    });
+                    return;
                 }
-                if (params.has('p')) {
-                    const p = parseFloat(params.get('p'));
-                    if (!isNaN(p) && p >= 0) {
-                        inpPrice.step = 'any';
-                        if (p > parseFloat(inpPrice.max)) inpPrice.max = Math.ceil(p / 10) * 10;
-                        inpPrice.value = p;
-                    }
-                }
-                if (params.has('c')) {
-                    const c = parseFloat(params.get('c'));
-                    if (!isNaN(c) && c >= 0.1 && c <= 100) {
-                        inpConv.step = 'any';
-                        if (c > parseFloat(inpConv.max)) inpConv.max = Math.ceil(c / 5) * 5;
-                        inpConv.value = c;
-                    }
-                }
-                if (params.has('b')) {
-                    const b = parseFloat(params.get('b'));
-                    if (!isNaN(b) && b >= 0) {
-                        inpCol.step = 'any';
-                        if (b > parseFloat(inpCol.max)) inpCol.max = Math.ceil(b / 1000) * 1000;
-                        inpCol.value = b;
-                    }
-                }
-                if (params.has('snf')) {
-                    const snfVal = params.get('snf');
-                    const targetRadio = document.querySelector(`input[name="snf-status"][value="${snfVal}"]`);
-                    if (targetRadio) targetRadio.checked = true;
+
+                // If no URL params, try restoring from localStorage
+                const saved = localStorage.getItem('wdikmg_state');
+                if (saved) {
+                    applyValues(JSON.parse(saved));
                 }
             } catch (e) {
-                console.error("Error reading URL parameters", e);
+                console.error("Error restoring calculator state", e);
             }
         }
 
@@ -1229,8 +1324,66 @@
             radio.addEventListener('change', updateCalculations);
         });
 
+        // -------------------------------------------------------------
+        // Cookie & Privacy Consent Management (Google Consent Mode v2)
+        // -------------------------------------------------------------
+        const consentBanner = document.getElementById('consent-banner');
+        const btnConsentAccept = document.getElementById('btn-consent-accept');
+        const btnConsentDecline = document.getElementById('btn-consent-decline');
+        const btnCookieSettings = document.getElementById('btn-cookie-settings');
+
+        function showConsentBanner() {
+            if (!consentBanner) return;
+            consentBanner.classList.remove('translate-y-28', 'opacity-0', 'pointer-events-none');
+            consentBanner.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+        }
+
+        function hideConsentBanner() {
+            if (!consentBanner) return;
+            consentBanner.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            consentBanner.classList.add('translate-y-28', 'opacity-0', 'pointer-events-none');
+        }
+
+        function setConsent(status) {
+            try {
+                localStorage.setItem('wdikmg_ga_consent', status);
+            } catch (e) { }
+
+            if (typeof gtag === 'function') {
+                gtag('consent', 'update', {
+                    'analytics_storage': status === 'granted' ? 'granted' : 'denied'
+                });
+            }
+
+            hideConsentBanner();
+        }
+
+        if (btnConsentAccept) {
+            btnConsentAccept.addEventListener('click', () => setConsent('granted'));
+        }
+
+        if (btnConsentDecline) {
+            btnConsentDecline.addEventListener('click', () => setConsent('denied'));
+        }
+
+        if (btnCookieSettings) {
+            btnCookieSettings.addEventListener('click', (e) => {
+                e.preventDefault();
+                showConsentBanner();
+            });
+        }
+
+        // Show banner after short delay if no decision recorded yet
+        try {
+            if (!localStorage.getItem('wdikmg_ga_consent')) {
+                setTimeout(showConsentBanner, 600);
+            }
+        } catch (e) {
+            setTimeout(showConsentBanner, 600);
+        }
+
         // Initialize on Load
-        loadFromUrlParams();
+        loadInitialState();
         updateCalculations();
         lucide.createIcons();
     </script>

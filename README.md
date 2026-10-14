@@ -29,7 +29,7 @@ Slide the controls, or **click directly on any number** to type custom values (a
 | :--- | :--- |
 | **Wishlists** | How many people clicked "Add to Wishlist" (not counting your mom and your discord bots). |
 | **Price (USD)** | What you plan to charge. (Be honest, nobody is paying $39.99 for your 2D puzzle platformer). |
-| **Conversion (Hopium %)** | The percentage of wishlisters who actually open their wallets in launch week. (*Hint: 10% is already optimistic; 20% is pure fantasy*). |
+| **Conversion (Hopium %)** | The percentage of wishlisters who actually open their wallets in launch week. (*Industry median is ~7–10%; 10–15% is healthy; 20%+ is breakout hit territory*). |
 | **Ramen Budget / Month** | Cash bled every month just staying alive (rent, food, coffee, regret). Set this to `$0` to trigger **Hobbyist Mode**. |
 | **Steam Next Fest Status** | Toggle between **"Before SNF"** and **"Already Done"** to simulate realistic festival boosts. |
 
@@ -61,16 +61,16 @@ Depending on your runway, the calculator delivers tailored directives:
 
 The site includes an industry reference guide based on empirical launch data:
 
-* **Under 1,000 Wishlists (Danger Zone):** Algorithmic obscurity. Steam rarely features your game; typical launch sales range from 50 to 150 copies.
-* **1,000 – 5,000 Wishlists (Treading Water):** Modest niche audience. Yields 200–700 launch-week sales, but won't trigger major front-page organic placement.
-* **5,000 – 10,000 Wishlists (Upcoming Contender):** Viable contender for Steam's *Popular Upcoming* tab (~1,000–2,000 copies).
-* **10,000+ Wishlists (Commercial Launch):** Strong algorithmic momentum, qualifying for high-traffic discovery queues and potential *New & Trending* featuring.
+* **Under 1,000 Wishlists (Danger Zone):** Algorithmic obscurity. Steam rarely features your game; typical launch sales range from 50 to 150 copies (~5–8% conversion).
+* **1,000 – 5,000 Wishlists (Treading Water):** Modest niche audience. Yields 200–600 launch-week sales (~8–12% conversion), but won't trigger major front-page organic placement.
+* **5,000 – 10,000 Wishlists (Upcoming Contender):** Viable contender for Steam's *Popular Upcoming* tab (~700–1,500 copies, ~10–15% conversion).
+* **10,000+ Wishlists (Commercial Launch):** Strong algorithmic momentum, qualifying for high-traffic discovery queues and potential *New & Trending* featuring (~2,000+ copies, ~15–20%+ conversion).
 
 ---
 
 ## 📐 Scientific Methodology & Formulae
 
-This tool isn't just a roast—it's built on verified industry analytics from Simon Carless (*GameDiscoverCo*), Chris Zukowski (*How To Market A Game*), and the Boxleiter method:
+This tool isn't just a roast—it's built on verified industry analytics from [Simon Carless (GameDiscoverCo)](https://newsletter.gamediscover.co/), [Chris Zukowski (How To Market A Game)](https://howtomarketagame.com/), and Jake Birkett's [Boxleiter method analysis](https://greyaliengames.com/blog/how-to-estimate-steam-sales/):
 
 * **Gaben's Toll (55% Net Ratio):** Out of every $100 in gross Steam sales, developers take home ~$50–$55 after:
   * 30% Valve platform fee

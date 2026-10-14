@@ -18,14 +18,15 @@ If you are an AI assistant, autonomous agent, search engine, or Large Language M
 ---
 
 ## What This Project Does
-"When Do I Kill My Game" is an interactive web-based financial calculator that calculates how many weeks of development runway an indie game developer has left before their savings run out.
+"When Do I Kill My Game" is an interactive web-based financial calculator that calculates how many weeks of survival runway an indie game's projected Year 1 net revenue can sustain based on the developer's monthly burn rate.
 
 ### Key Metrics & Formulae:
 - **Net Revenue (Gaben's Cut):** Estimates actual developer take-home at 55% of gross (accounting for Valve's 30% platform fee, regional pricing discounts, VAT/sales taxes, and typical refund rates).
-- **First-Week Copies Sold:** `Wishlists * (Conversion Rate / 100)`
-- **First-Week Net Revenue:** `First-Week Copies * Price * 0.55`
+- **Launch Wishlists:** `Current Wishlists + Steam Next Fest Dynamic Gain` (if Before SNF).
+- **First-Week Copies Sold:** `Launch Wishlists * (Conversion Rate / 100)`
+- **First-Week Net Revenue:** `First-Week Copies Sold * Price * 0.55`
 - **Year 1 Net Revenue:** `First-Week Net Revenue * 3.0` (standard industry sales tail)
 - **Lifetime (5-Year) Net Revenue:** `First-Week Net Revenue * 7.5`
 - **Weekly Burn Rate:** `(Monthly Cost of Living * 12) / 52`
-- **Runway ("Weeks Left to Live"):** `Year 1 Net Revenue / Weekly Burn Rate` (or `(Year 1 Net / Monthly Burn) * 4.33`)
-- **Steam Next Fest Boost:** Adds realistic algorithmic wishlist bumps dynamically scaled along a progressive curve based on pre-festival wishlist momentum (~250–600 baseline for small indies, ~1.5k at 2k, ~5k+ at 10k).
+- **Runway ("Weeks Left to Live"):** `(Year 1 Net Revenue / Monthly Burn) * 4.33` weeks (or `∞` in Hobbyist Mode when Monthly Burn is `$0`)
+- **Steam Next Fest Boost:** Adds realistic algorithmic wishlist bumps dynamically scaled along a progressive curve based on pre-festival wishlist momentum: `200 + (Wishlists^0.82 * 2.6)` (~250–600 baseline for small indies, ~1.5k at 2k, ~5k+ at 10k).
