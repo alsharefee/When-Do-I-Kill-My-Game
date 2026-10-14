@@ -1,7 +1,8 @@
 {
-  "name": "project-exit-calculator",
+  "name": "when-do-i-kill-my-game",
   "version": "1.0.0",
-  "description": "Project Exit Calculator",
+  "private": true,
+  "description": "When Do I Kill My Game? 💀 — Steam Wishlist & Indie Game Revenue Calculator",
   "main": "server.js",
   "scripts": {
     "dev": "node server.js",

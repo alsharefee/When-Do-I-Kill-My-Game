@@ -92,7 +92,7 @@ This tool isn't just a roast—it's built on verified industry analytics from Si
 This project is built with **zero external build steps**—it is a lightweight, responsive static web app!
 
 ### Option 1: Just Double-Click
-Simply download or clone the repo, and open [index.html](file:///c:/Users/alsha/Documents/First%20Party%20Projects/When-Do-I-Kill-My-Game/index.html) directly in any modern web browser.
+Simply download or clone the repo, and open `index.html` directly in any modern web browser.
 
 ### Option 2: Run with Node.js
 ```bash
